@@ -20,3 +20,46 @@ gubuntu1 [myAnsibleCode]$ git config --global user.email "oansari@gmail.com"
 gubuntu1 [myAnsibleCode]$ git config --global user.name "Omer Ansari"
 gubuntu1 [myAnsibleCode]$ git config --global core.editor "vi"
 g
+
+- set up in github access token for my gubuntu box.
+	* https://help.github.com/articles/creating-an-access-token-for-command-line-use/
+	* (that let me git push however required me to put it each time ...) 
+
+`
+gubuntu1 [.git]$ more config
+[core]
+	repositoryformatversion = 0
+	filemode = true
+	bare = false
+	logallrefupdates = true
+	ignorecase = true
+	precomposeunicode = true
+[remote "origin"]
+	url = https://github.com/knail1/myAnsibleCode.git   <------change to git
+	fetch = +refs/heads/*:refs/remotes/origin/*
+[branch "master"]
+	remote = origin
+	merge = refs/heads/master
+`
+
+- to remove that restriction, I also changed the config url from https to git so that I dont have to always put access token
+	* http://stackoverflow.com/questions/8588768/git-push-username-password-how-to-avoid
+	* its still asking for my passphrase but thats less painful..
+
+- on the VM itself:
+
+run :
+`ubuntu1 [settingUpDevEnvironmentOnVM]$ ansible-playbook -vvvv -u knail1 --ask-sudo-pass -e "username=knail1" installAnsibleStuff.yml`
+
+
+
+/* I didnt run the above, just ran the manual commands below, but the ansible stuff should work 
+`gubuntu1 [settingUpDocker]$ sudo apt-get install ansible`
+
+then
+
+`sudo pip install ansible-container`
+
+clean and painless install, much easier than mac!!
+*/
+

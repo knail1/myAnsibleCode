@@ -1,5 +1,5 @@
 ---
-- hosts: ubuntu
+- hosts: self
   become: yes
 
   roles:

@@ -1,0 +1,10 @@
+---
+- hosts: self
+  become: yes
+
+  tasks:
+   - name: Install ansible
+     apt: pkg=ansible state=installed
+
+   - name: install ansible-container
+     pip: name=ansible-container
