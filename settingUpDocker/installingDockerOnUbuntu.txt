@@ -1,0 +1,19 @@
+installing docker on ubuntu.txt
+https://www.ansible.com/2014/02/12/installing-and-building-docker-with-ansible
+
+use a pre-created ROLE:
+
+sudo ansible-galaxy install angstwad.docker_ubuntu
+
+then run the dockerUp.yml
+
+$ ansible-playbook -vvvv -u knail1 --ask-sudo-pass settingUpDocker/dockerUp.yml
+
+
+after the run, look into the VM:
+
+knail1@gubuntu1:~$ which docker
+/usr/bin/docker
+knail1@gubuntu1:~$ docker --version
+Docker version 1.12.2, build bb80604
+knail1@gubuntu1:~$
