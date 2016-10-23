@@ -1,0 +1,52 @@
+settingUpUbuntuVM.txt
+
+install via 
+- downloading ubuntu-16.04.1-desktop-amd64.iso
+- creating a VB ubuntu image (i gave 4GB RAM, and 40GB dynamic disk)
+	- creating a 2nd HOST ONLY INTERFACE
+	- on the local VB network settings, this vboxnet* interface was set to 192.168.56.1
+	- enabled DHCP server, 192.168.56.100(server), /24 mask, range: 56.101-252
+- attaching the iso to the image, and booting, initial manual installing
+- at this point from the ubuntu server:
+	- i can now ping the internet (from first eth interface)
+	- i received 192.168.56.101 on eth2
+
+- from the mac (host):
+	- i can ping 192.168.56.101 through my vbnoxnet* interface (with IP 56.1)
+	- i cannot ssh into the ubuntu server
+
+- so let's enable ssh on the ubuntu VM:
+
+http://askubuntu.com/questions/51925/how-do-i-configure-a-new-ubuntu-installation-to-accept-ssh-connections
+
+sudo apt-get update
+sudo apt-get install openssh-server
+sudo ufw allow 22
+
+
+- at this point, I can ssh into the ubuntu server from my mac but still using u/p
+
+- let's enable passwordless ssh on ubuntu:
+http://www.thegeekstuff.com/2008/11/3-steps-to-perform-ssh-login-without-password-using-ssh-keygen-ssh-copy-id/
+
+	- i already have local ssh public/private keys generated so skipping first few steps from URL
+	- i copy my mac's .ssh/id_rsa.pub over to the ubuntu box (via sftp)
+	- i rename (mv) this id_rsa.pub on the ubuntu to : ~knail1/.ssh/authorized_keys
+
+I can now log into ubuntu VM from my mac via ssh knail1@192.168.56.101 (without password)
+
+- everything else can be configured via ansible.
+[ansible]$ cat /etc/ansible/hosts
+[ubuntu]
+gubuntu1
+[ansible]$
+[ansible]$ grep gubuntu1 /etc/hosts
+192.168.56.101	gubuntu1
+[ansible]$
+[ansible]$ ansible ubuntu -m ping -u knail1
+
+gubuntu1 | SUCCESS => {
+    "changed": false,
+    "ping": "pong"
+}
+[ansible]$
