@@ -1,0 +1,2 @@
+run this script as follows:
+$ /usr/local/bin/ansible-playbook -vvvv -u knail1 --ask-sudo-pass -e "username=knail1" settingUbuntuEnv/ubuntuEnvPlaybook.yml

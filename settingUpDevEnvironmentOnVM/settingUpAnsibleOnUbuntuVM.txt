@@ -1,0 +1,22 @@
+settingUpAnsibleOnUbuntu.txt
+
+
+El-capitan is a real pain in the ass. It doesn't allow me to write into certain "priveleged" paths within the machine. this poses a real problem, since I cannot install new setup-tools , and pretty much 50% of any "sudo pip install ..." commands fail.
+
+I needed to install ansible-container on my mac but it failed b/c of the same reasons... so i'm going to move all my ansible container dev over to the mac and run the ansible code locally on that box.
+
+to do this, need to do a few things first:
+
+- using virtualbox file sharing settings , I shared the local ~/coding/myAnsibleCode over to the VM (selected auto-mount)
+- installed guest VM additions on the ubuntu VM (setup>..)
+- mounted the MAC (myAnsibleCode) over, but ensured the user/group/umask rights were clean so I could code as knail1 (uid:1000,gid:1000) on the ubuntu box and not have to flip to root all the time
+
+`sudo mount -t vboxsf -o umask=0022,gid=1000,uid=1000 myAnsibleCode mnt/myAnsibleCode/`
+
+- created an ssh key on the ubuntu box (ssh-keygen), and put my id_rsa.pub (public key) into github so I can do git push's without password.
+
+- also:
+gubuntu1 [myAnsibleCode]$ git config --global user.email "oansari@gmail.com"
+gubuntu1 [myAnsibleCode]$ git config --global user.name "Omer Ansari"
+gubuntu1 [myAnsibleCode]$ git config --global core.editor "vi"
+g
