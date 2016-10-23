@@ -6,13 +6,14 @@
 
 - pull the latest container from docker hub:
 
-`gubuntu1 [jenkinsUbuntuVM]$ sudo docker pull jenkins`
 ```
+gubuntu1 [jenkinsUbuntuVM]$ sudo docker pull jenkins`
 b654f6b529a1: Pull complete
 662249d63ca0: Pull complete
 Digest: sha256:d48b1c77a66c5f4c6be42d0cccea73ec75f1306ef23d5f220cb8477682da43c1
 Status: Downloaded newer image for jenkins:latest
-
+```
+```
 gubuntu1 [jenkinsUbuntuVM]$ sudo docker images
 REPOSITORY          TAG                 IMAGE ID            CREATED             SIZE
 jenkins             latest              9bc67dd3e379        37 hours ago        712 MB
