@@ -14,3 +14,15 @@ I keep all my ansible code for local or cloud dev environments here
 - run this script as follows:
 
 `$ /usr/local/bin/ansible-playbook -vvvv -u knail1 --ask-sudo-pass -e "username=knail1" settingUbuntuEnv/ubuntuEnvPlaybook.yml `
+
+## settingUpDocker/dockerUp.yml
+
+- this playbook installs docker on the ubuntu VM
+- pre-requisites for this playbook: install the role:
+
+`sudo ansible-galaxy install angstwad.docker_ubuntu`
+
+- then run this command:
+` $ ansible-playbook -vvvv -u knail1 --ask-sudo-pass settingUpDocker/dockerUp.yml`
+
+
