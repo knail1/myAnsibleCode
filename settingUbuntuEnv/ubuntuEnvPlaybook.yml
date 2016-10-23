@@ -20,3 +20,15 @@
 
    - name: add PATH in prompt in  .profile for the {{ username }}
      lineinfile: dest=/home/{{ username }}/.profile line="export PS1='`uname -n` [${PWD##*/}]$ '"
+
+   - name: install vim
+     apt: pkg=vim state=installed
+
+   - name: create ~/.vim with correct attr
+     file: path=/home/{{ username }}/.vimrc owner={{ username }} group={{ username }}
+
+   - name: add colo desert in .vimrc
+     lineinfile: dest=/home/{{ username }}/.vimrc line="colo desert"
+
+   - name: add syntax on in .vimrc
+     lineinfile: dest=/home/{{ username }}/.vimrc line="syntax on"
