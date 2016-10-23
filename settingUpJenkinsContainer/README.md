@@ -5,8 +5,9 @@
 - right now, for the sake of expediency, i'm going to record only the manual steps I ran here to get the jenkins setup working on the ubuntu VM...
 
 - pull the latest container from docker hub:
-`gubuntu1 [jenkinsUbuntuVM]$ sudo docker pull jenkins
-[sudo] password for knail1:
+
+`gubuntu1 [jenkinsUbuntuVM]$ sudo docker pull jenkins`
+`[sudo] password for knail1:
 Using default tag: latest
 latest: Pulling from library/jenkins
 
@@ -17,4 +18,4 @@ bfc4cdbc8d81: Waiting
 7bbb0894483a: Waiting
 343785c6e48e: Waiting....
 `
-
+- running as a daemon, but with a local directory mapped to /var/jenkins_home to ensure installed plugins/settings are not lost at reboot/restart
