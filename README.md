@@ -12,4 +12,5 @@ I keep all my ansible code for local or cloud dev environments here
 	- changes the provided username's shell to ksh
 	- updates that username's .profile with relevant settings (making vi as CLI editor, and setting prompt)
 - run this script as follows:
-$ /usr/local/bin/ansible-playbook -vvvv -u knail1 --ask-sudo-pass -e "username=knail1" settingUbuntuEnv/ubuntuEnvPlaybook.yml 
+
+`$ /usr/local/bin/ansible-playbook -vvvv -u knail1 --ask-sudo-pass -e "username=knail1" settingUbuntuEnv/ubuntuEnvPlaybook.yml `
