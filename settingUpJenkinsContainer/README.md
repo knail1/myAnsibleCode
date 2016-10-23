@@ -7,15 +7,14 @@
 - pull the latest container from docker hub:
 
 `gubuntu1 [jenkinsUbuntuVM]$ sudo docker pull jenkins`
-`[sudo] password for knail1:
-Using default tag: latest
-latest: Pulling from library/jenkins
+```
+b654f6b529a1: Pull complete
+662249d63ca0: Pull complete
+Digest: sha256:d48b1c77a66c5f4c6be42d0cccea73ec75f1306ef23d5f220cb8477682da43c1
+Status: Downloaded newer image for jenkins:latest
 
-43c265008fae: Downloading [=======>                                           ] 7.339 MB/51.35 MB
-af36d2c7a148: Downloading [===========>                                       ] 4.325 MB/18.53 MB
-143e9d501644: Downloading [=====>                                             ] 4.698 MB/42.5 MB
-bfc4cdbc8d81: Waiting
-7bbb0894483a: Waiting
-343785c6e48e: Waiting....
-`
+gubuntu1 [jenkinsUbuntuVM]$ sudo docker images
+REPOSITORY          TAG                 IMAGE ID            CREATED             SIZE
+jenkins             latest              9bc67dd3e379        37 hours ago        712 MB
+```
 - running as a daemon, but with a local directory mapped to /var/jenkins_home to ensure installed plugins/settings are not lost at reboot/restart
