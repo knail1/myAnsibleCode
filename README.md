@@ -34,7 +34,7 @@ I keep all my ansible code for local or cloud dev environments here
 - i moved all my ansible development to the ubuntu VM itself. 
 	* included mounting the Mac's ansibleCode directory into ubuntu VM,
 	* setting up VM user's public key into github
-	* blah blah
+	* blah blah blah
 	* instructions on those can be found here: settingUpDevEnvironmentOnVM/settingUpAnsibleOnUbuntuVM.txt
 
 
