@@ -1,0 +1,22 @@
+---
+- hosts: ubuntu
+  become: yes
+
+  tasks:
+   - name: update apt packages
+     apt: upgrade=dist
+
+   - name: Install ksh
+     apt: pkg=ksh state=installed
+
+   - name: change users shell to ksh, username is passed as -e on CLI
+     user: name={{ username }} shell=/bin/ksh93
+
+   - name: create ~/.profile with correct attr
+     file: path=/home/{{ username }}/.profile owner={{ username }} group={{ username }}
+
+   - name: add set -o vi  in  .profile for the {{ username }}
+     lineinfile: dest=/home/{{ username }}/.profile line="set -o vi"
+
+   - name: add PATH in prompt in  .profile for the {{ username }}
+     lineinfile: dest=/home/{{ username }}/.profile line="export PS1='`uname -n` [${PWD##*/}]$ '"
