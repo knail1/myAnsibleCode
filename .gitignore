@@ -5,3 +5,4 @@ cloudFoundryOnAWS-Minimal/aws_credentials.csv
 cloudFoundryOnAWS-Minimal/my-bosh/bosh.pem
 .gitignore.swp
 cloudFoundryOnAWS-Minimal/my-bosh/bosh-state.json
+cloudFoundryOnAWS-Minimal/my-bosh/minimal-aws.yml
