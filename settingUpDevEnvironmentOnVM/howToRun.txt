@@ -4,6 +4,6 @@ then run this script as follows:
 $ /usr/local/bin/ansible-playbook -vvvv -u knail1 --ask-sudo-pass -e "username=knail1" installAnsibleStuff.yml
 
 created another yml file for misc PIP file installs:
-(remember, we're running these on the VM itself
+(remember, this yml we can run from our mac laptop as it is targeting the [ubuntu] host which is my gubuntu1 VM:
 
 $ /usr/local/bin/ansible-playbook -vvvv -u knail1 --ask-sudo-pass -e "username=knail1" installMiscPIPstuff.yml.yml
