@@ -9,6 +9,12 @@
        dest: /usr/local/bin/bosh-init
        mode: 0755
 
+   - name: adding iam.us-east-1.amazonaws.com in /etc/hosts to circumvent a bug in bosh deploy
+     lineinfile: dest=/etc/hosts line="72.21.211.94 iam.us-east-1.amazonaws.com"
+
+   - name: adding $ELASTIC_IP in .profile for easy access to bosh director from VM
+     lineinfile: dest=/home/{{ username }}/.profile line="export ELASTIC_IP=52.206.184.215"
+     
    - name: update apt packages
      apt: upgrade=dist
 
@@ -53,3 +59,15 @@
 
    - name: Install sqlite3 
      apt: pkg=sqlite3  state=installed
+
+   - name: Install libxslt1-dev
+     apt: pkg=libxslt1-dev  state=installed
+
+   - name: Install libpq-dev
+     apt: pkg=libpq-dev  state=installed
+
+   - name: Install libmysqlclient-dev
+     apt: pkg=libmysqlclient-dev  state=installed
+
+   - name: Install zlib1g-dev 
+     apt: pkg=zlib1g-dev  state=installed
