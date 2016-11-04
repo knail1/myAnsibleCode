@@ -2,3 +2,4 @@
 cloudFoundryOnAWS-Minimal/.DS_Store
 cloudFoundryOnAWS-Minimal/my-bosh/bosh.yml
 cloudFoundryOnAWS-Minimal/aws_credentials.csv
+cloudFoundryOnAWS-Minimal/my-bosh/bosh.pem
