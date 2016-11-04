@@ -2,3 +2,8 @@ first, review the .txt file for the manual (yes, unfortunately!) steps
 
 then run this script as follows:
 $ /usr/local/bin/ansible-playbook -vvvv -u knail1 --ask-sudo-pass -e "username=knail1" installAnsibleStuff.yml
+
+created another yml file for misc PIP file installs:
+(remember, we're running these on the VM itself
+
+$ /usr/local/bin/ansible-playbook -vvvv -u knail1 --ask-sudo-pass -e "username=knail1" installMiscPIPstuff.yml.yml

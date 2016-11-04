@@ -1,0 +1,7 @@
+---
+- hosts: self
+  become: yes
+
+  tasks:
+   - name: install awscli
+     pip: name=awscli
