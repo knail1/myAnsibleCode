@@ -1,0 +1,55 @@
+---
+- hosts: ubuntu
+  become: yes
+
+  tasks:
+   - name: download bosh-init and move it to the right place with the right perms
+     get_url:
+       url: https://s3.amazonaws.com/bosh-init-artifacts/bosh-init-0.0.98-linux-amd64
+       dest: /usr/local/bin/bosh-init
+       mode: 0755
+
+   - name: update apt packages
+     apt: upgrade=dist
+
+   - name: Install build-essential 
+     apt: pkg=build-essential  state=installed
+
+   - name: Install zlibc 
+     apt: pkg=zlibc  state=installed
+
+   - name: Install zlib1g-dev  
+     apt: pkg=zlib1g-dev  state=installed
+
+   - name: Install ruby 
+     apt: pkg=ruby  state=installed
+
+   - name: Install ruby-dev 
+     apt: pkg=ruby-dev  state=installed
+
+   - name: Install openssl 
+     apt: pkg=openssl  state=installed
+
+   - name: Install libxslt-dev 
+     apt: pkg=libxslt-dev  state=installed
+
+   - name: Install libxml2-dev  
+     apt: pkg=libxml2-dev  state=installed
+
+   - name: Install libssl-dev 
+     apt: pkg=libssl-dev  state=installed
+
+   - name: Install libreadline6 
+     apt: pkg=libreadline6  state=installed
+
+   - name: Install libreadline6-dev 
+     apt: pkg=libreadline6-dev  state=installed
+
+   - name: Install libyaml-dev 
+     apt: pkg=libyaml-dev  state=installed
+
+   - name: Install libsqlite3-dev 
+     apt: pkg=libsqlite3-dev  state=installed
+
+   - name: Install sqlite3 
+     apt: pkg=sqlite3  state=installed
